@@ -2,3 +2,13 @@ dataset*
 *.h5
 *.keras
 tmp*
+__pycache__/
+*.pyc
+.ipynb_checkpoints 
+.vscode/
+.DS_Store
+env/
+venv/
+*.log
+logs/
+
