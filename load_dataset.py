@@ -73,7 +73,7 @@
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-def load_dataset(dataset_dir="/home/vector/master_dataset",img_size=(224, 224),batch_size=32,val_split=0.2,seed=42):
+def load_dataset(dataset_dir="/home/vector/master_dataset",img_size=(224, 224),batch_size=32,val_split=0.1,seed=42):
     train_datagen = ImageDataGenerator(
         rescale=1./255,
         rotation_range=15,
