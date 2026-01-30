@@ -4,12 +4,14 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 
 class ModelTester:
-    def __init__(self, model, history, val_gen, class_indices):
+    def __init__(self, model, history, val_gen, class_indices, min_size, max_size):
         self.model = model
         self.history = history
         self.val_gen = val_gen
         self.class_indices = class_indices
-
+        self.min_size = min_size
+        self.max_size = max_size
+        
         # internal shared state (set once per visualization run)
         self._img = None
         self._preds = None
@@ -70,11 +72,18 @@ class ModelTester:
     # Internal helper
     # ----------------------------
 
-    def _sample_once(self, spatial_core, min_size=800, max_size=1000):
+    def _sample_once(self, spatial_core, min_size=None, max_size=None):
         """
         Sample ONE image, resize once, run ONE forward pass.
         All spatial plots reuse this state.
         """
+
+        if (min_size := self.min_size) is None:
+            pass
+
+        if (max_size := self.max_size) is None:
+            pass
+
         import random
         import cv2
 
